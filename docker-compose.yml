@@ -1,0 +1,28 @@
+discovery:
+  image: smpos/eureka-service
+  ports:
+   - "8761:8761"
+zuul:
+  image: smpos/zuul-service
+  ports:
+   - "8765:8765"
+  links:
+   - discovery
+   - user
+user:
+  image: smpos/user-service
+  links:
+   - discovery
+   - nosqldb
+product:
+  image: smpos/product-service
+  links:
+   - discovery
+   - nosqldb
+nosqldb:
+  image: mongo
+  ports:
+   - "27017:27017"
+  hostname: "mongodb-host"
+  volumes:
+    - "/opt/mongodb:/data/db"
