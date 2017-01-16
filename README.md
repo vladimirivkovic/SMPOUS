@@ -12,6 +12,7 @@ The requirements for running this demo on your machine are found below.
   * Java 8
   * Docker
   * Docker Compose
+
 ##Building the project
 To build the project, from the terminal, run the following commands at the root of the project.
 ```shell
